@@ -33,6 +33,24 @@ function findNumberOfChar(str) {
 
 }
 
+function findNumberOfChar(str){
+  let str1 = str.split("");
+  console.log(str1)
+  let charCount = {};
+  let count = 0;
+  
+  for(let i = 0; i < str1.length; i++){
+    let char = str1[i];
+    if(char !== ' '){
+         count += 1
+    }
+  
+    
+  }
+     return count;
+}
+
+ 
 // console.log(findNumberOfChar(str2))
 
 
@@ -88,9 +106,10 @@ let arr2 = arr1.slice(2, 3)
 
 let arr3 = [1, 2, 3, 4, 5, 6]
 let arr4 = arr3.splice(1, 1, 10, 20)
-// console.log(arr3)
-// console.log(arr4)
-
+// console.log(arr3) [ 1, 10, 20, 3, 4, 5, 6 ]
+// console.log(arr4) [ 2 ]
+ 
+ 
 
 // 7. Create your own string method: repeatify(3)- input string will be repeated three times
 // Ex- console.log("hello".repeatString(3)); // HelloHelloHello
@@ -102,6 +121,19 @@ String.prototype.repeatString = function (times) {
     }
     return str;
 }
+
+
+//simple alternative
+let string = "remo"
+function repeat(times){
+  let result = ""
+  for(let i = 0; i < times; i++){
+    result += string
+  }
+  return result
+}
+ 
+
 // console.log("Hello".repeatString(3))  // HelloHelloHello
 
 
