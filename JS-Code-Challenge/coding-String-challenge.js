@@ -199,6 +199,16 @@ function checkAnagram(str1, str2) {
 
 console.log(checkAnagram("abcd", "cdab"));  // true
 
+function isAnagram(a, b) {
+  return a.toLowerCase().split('').sort().join('') === 
+         b.toLowerCase().split('').sort().join('');
+}
+
+console.log(isAnagram("Listen", "Silent")); // true
+// listen → eilnst
+// silent → eilnst
+
+
 // 14.  Write a JavaScript program that converts a string to camelCase
 function toCamelCase(str) {
     if (!str) {
