@@ -21,3 +21,10 @@ function countNumberOfDigits(n){
 }
 
 console.log(countNumberOfDigits(23452))
+
+
+// simple way
+
+let digits = 23452;
+
+console.log(digits.toString().split("").length);
