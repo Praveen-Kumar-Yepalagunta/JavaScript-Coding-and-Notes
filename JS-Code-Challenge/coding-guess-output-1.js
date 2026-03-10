@@ -1,58 +1,86 @@
 // Guess the output:
 
-// Let revise JS concept by guessing the example,
-
 // Q-1
-let newList= [1,2,3].push(4)
+let newList = [1,2,3].push(4);
+
+console.log(newList); 
+// Output: 4
+// push() returns the new length of the array, not the array itself.
+
 // console.log(newList.push(5));
+// Error: newList is a number (4), numbers don't have push()
+
+// --------------------------------------------------
 
 // Q-2
-const numbers= [1,2,3,4,5];
-const [y]= numbers;
+const numbers = [1,2,3,4,5];
+const [y] = numbers;
 
-// console.log(y);
+console.log(y);
+// Output: 1
+// Array destructuring takes the first element
+
+// --------------------------------------------------
 
 // Q-3
-const duplicateKey= {name: "Bittu", age:26, name:"Rajeev"};
-// console.log(duplicateKey);
+const duplicateKey = {name: "Bittu", age:26, name:"Rajeev"};
+console.log(duplicateKey);
+
+// Output: { name: "Rajeev", age: 26 }
+// When duplicate keys exist, the last one overwrites the previous.
+
+// --------------------------------------------------
 
 // Q-4
 function test(){
     return this.name;
 }
 
-var obj= {name: "Bittu"};
-// console.log(test(), test.call(obj))
+var obj = {name: "Bittu"};
+
+console.log(test()); 
+// Output: undefined (or global name if defined)
+// In normal function call, this refers to global object.
+
+console.log(test.call(obj));
+// Output: Bittu
+// call() explicitly sets this to obj.
+
+// --------------------------------------------------
 
 // Q-5
-const a= {};
-const b= {key: "b"};
-const c= {key: "c"};
-a[b]= 123;
-a[c]= 456;
+const a = {};
+const b = {key: "b"};
+const c = {key: "c"};
 
+a[b] = 123;
+a[c] = 456;
 
-// console.log(a[b]);
+console.log(a[b]);
+// Output: 456
+// Object keys are converted to string "[object Object]"
+// So both keys overwrite the same property.
 
-// Object keys are automatically converted into strings
-// a["[object,object]"]=123
-
+// --------------------------------------------------
 
 // Q-6
-
 (function(){
-    var a1= b1= 5;
-
+    var a1 = b1 = 5;
 })();
 
+console.log(b1);
+// Output: 5
+// b1 becomes global variable
 
-//console.log(b1);  //5
-//console.log(a1);  // Error
+console.log(a1);
+// Error: a1 is function scoped
 
+// --------------------------------------------------
 
 // Q-7
-var fullName= "Bittu";
-var obj= {
+var fullName = "Bittu";
+
+var obj = {
     fullName: "Rahul",
     prop: {
         fullName: "Suraj",
@@ -62,25 +90,33 @@ var obj= {
     }
 };
 
-// console.log(obj.prop.getFullName());  //  "Suraj"
+console.log(obj.prop.getFullName());
+// Output: Suraj
+// this refers to prop object
 
-const getName= obj.prop.getFullName;
-// console.log(getName())   // Bittu
+const getName = obj.prop.getFullName;
+
+console.log(getName());
+// Output: Bittu
+// this refers to global object
+
+// --------------------------------------------------
 
 // Q-8
-// How do you check if a key is available in an object in JavaScript ?
+let Object1 = {name: "Bittu", age: 24};
+let Object2 = Object.create(Object1);
+Object2.city = "BLR";
 
-// Way 1  : Using 'in' operator- 
-// It checks for property exists in an Object, including properties inherited from its prototype chain.
-let Object1= {name: "Bittu", age: 24};
-let Object2= Object.create(Object1);
-Object2.city="BLR";
+console.log("name" in Object1);
+// Output: true
 
-console.log("name" in Object1);  // true
-console.log("name" in Object2);  // true
+console.log("name" in Object2);
+// Output: true
+// 'in' checks prototype chain also
 
-// Way 2: Using the hasOwnProperty() method
-//It checks if an object has a property with the specified name. It does not check properties inherited from its prototype chain.
+console.log(Object1.hasOwnProperty("name"));
+// Output: true
 
-console.log(Object1.hasOwnProperty("name"));  // true
-console.log(Object2.hasOwnProperty("name"));  // false
+console.log(Object2.hasOwnProperty("name"));
+// Output: false
+// hasOwnProperty checks only own properties
