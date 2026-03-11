@@ -32,7 +32,7 @@ console.log(arr)
 
 
 // indexOf
-// It return the index
+// It return the first matched item index
 // It is not change the original array
 let arr4= arr.indexOf(5);
 console.log(arr4);  // 4
