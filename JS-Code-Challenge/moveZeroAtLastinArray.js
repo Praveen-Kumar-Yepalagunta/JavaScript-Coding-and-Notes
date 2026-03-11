@@ -34,7 +34,7 @@ function moveZeroToLastInArray(arr){
     }
   }
 
-  console.log(result);
+   return transformedArr;
 }
 
 moveZeroToLastInArray([0,1,0,3]);
