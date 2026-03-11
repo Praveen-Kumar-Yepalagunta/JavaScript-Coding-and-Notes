@@ -12,3 +12,5 @@ function secondLargestNumber(arr){
 
 
 console.log(secondLargestNumber([10, 5,2,13]))
+
+// 10
